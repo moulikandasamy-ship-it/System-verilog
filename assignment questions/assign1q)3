@@ -12,7 +12,7 @@ module unpacked;
    arr={8'hA1, 8'hB2, 8'hC3, 8'hD4};
    foreach(arr[i])
      begin
-       $display("static[%0h]=%0h",i,arr[i]);
+       $display("arr[%0h]=%0h",i,arr[i]);
      end
  end
    endmodule
