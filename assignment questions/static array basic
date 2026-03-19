@@ -1,0 +1,17 @@
+//Declare a static array of type int with 5 elements named arr.
+//Initialize it with the values {10, 20, 30, 40, 50} and display all elements using a for loop.
+
+
+
+module static_array;
+  int arr[4:0];
+  int i;
+  
+  initial begin
+    arr={10,20,30,40,50};
+  for(i=0;i<5;i++)
+    $display("arr[%0d]=%0d " ,i,arr[i]);
+         
+         end
+         endmodule
+    
