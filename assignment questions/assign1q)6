@@ -1,0 +1,19 @@
+//6. Declare two static arrays of type int:
+//int A[5] = '{1,2,3,4,5};
+//int B[5];
+//Copy all elements from array A to array B using direct assignment and display the contents of B.
+
+module arr_copy;
+
+  int A[5] = '{1, 2, 3, 4, 5};
+  int B[5];
+
+  initial begin
+    B = A;
+
+    foreach (B[i]) begin
+      $display("B[%0d] = %0d", i, B[i]);
+    end
+  end
+
+endmodule
