@@ -1,0 +1,29 @@
+module fourstate;
+  reg[2:0]a;
+  integer b;
+  real c;
+  time d;
+  
+  
+  initial begin
+    $display(" default values of a=%0d ", a);
+    $display(" default values of b=%0d ", b);
+    $display(" default values of c=%0f",c);
+    $display(" default values of d=%0d", d);
+    
+  end
+    initial begin
+      a=3'b101;
+      b=29;
+      c=3.2;
+      d=2;
+      
+      $display("print value of a=%0d",a);
+      $display("print value of b=%0d",b);
+      $display("print value of c=%0f",c);
+      $display("print value of d=%0d",d);
+      
+      
+  end
+endmodule
+    
