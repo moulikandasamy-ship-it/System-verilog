@@ -1,0 +1,33 @@
+//4. Given the following static array:
+                        //    int numbers[6] = '{5, 10, 15, 20, 25, 30};
+              // Write a program to:
+              //       Print all elements
+               //      Calculate the sum of the elements
+
+
+module arr;
+  int numbers[6]={5, 10, 15, 20, 25, 30};
+  int x;
+  
+  initial begin
+    foreach(numbers[i])
+      $display("numbers[%0p]=%0p",i,numbers[i]);
+  end
+
+  initial begin
+    x=numbers[0]+numbers[1]+numbers[2]+numbers[3]+numbers[4]+numbers[5];
+    $display("x=%0d",x);
+  end
+    
+
+//or
+
+initial begin
+  x=0;
+  foreach(numbers[i])begin
+  x+=numbers[i];
+  $display("x=%0d",x);
+  end
+end
+endmodule
+    
