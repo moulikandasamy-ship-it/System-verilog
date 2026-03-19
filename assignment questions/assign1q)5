@@ -1,0 +1,30 @@
+//5. Declare a 3-element unpacked static array of type bit [9:0] named packed_arr.
+//Write a statement to access bit index 2 of the second element.
+
+
+ module sa;
+   bit [9:0] packed_arr [2:0];
+   int i;
+   
+   initial begin
+   
+   packed_arr[0]=10'b0000000000;
+   packed_arr[1]=10'b0000000100;
+   packed_arr[2]=10'b0000010000;
+   end
+   
+   initial begin
+     $display("the second element second index=%0d",packed_arr[1][2]);
+   end
+   
+     //or
+
+   initial begin
+     for(i=0;i<3;i++)
+       if(i==1)begin
+         $display("the answer of %0d=%0b" ,i,packed_arr[1][2]);
+       end
+   end
+ endmodule
+     
+      
