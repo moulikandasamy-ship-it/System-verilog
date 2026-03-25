@@ -1,0 +1,22 @@
+//10. Given the following static array:
+//int scores[5] = '{10, 20, 30, 40, 50};
+//Write statements to:
+// Access the third element
+// Modify the last element to 60
+// Display the updated array.]
+
+module statement;
+  int scores[5]='{10,20,30,40,50};
+  
+  initial begin
+    $display("third element is=%0d",scores[3]);
+    
+  end
+
+  initial begin
+    scores[4]=60;
+    foreach(scores[i])begin
+      $display("updated array[%0d]=%0d",i,scores[i]);
+    end
+  end
+    endmodule
