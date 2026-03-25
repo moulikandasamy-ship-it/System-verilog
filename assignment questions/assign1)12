@@ -1,0 +1,15 @@
+//12. Declare a static array of type byte with 6 elements.
+//Initialize the array with different values and display each element using a foreach loop.
+
+module byte_array;
+
+  byte arr[6]; 
+
+  initial begin
+    arr = '{10, 20, 30, 40, 50, 60};
+    foreach (arr[i]) begin
+      $display("arr[%0d] = %0d", i, arr[i]);
+    end
+  end
+
+endmodule
