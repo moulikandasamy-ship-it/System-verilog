@@ -1,0 +1,30 @@
+module roger;
+  typedef struct{
+    string name;
+    bit[50:0]displacement;
+    int load;
+    byte codeid;
+  }sub;
+  
+  initial begin
+    sub sub1,sub2;
+    sub1.name="type 212";
+    sub1.displacement=2750;
+    sub1.load=800;
+    sub1.codeid=71;
+    
+    sub2.name="type 214";
+    sub2.displacement=3150;
+    sub2.load=1000;
+    sub2.codeid=73;
+    
+    if(sub1.displacement>sub2.displacement&&sub1.load>sub2.load)
+      $display("sub1 is better");
+    else if(sub2.displacement>sub1.displacement&&sub2.load>sub1.load)
+      $display("sub2 is better");
+    else
+      $display("both are equal");
+  end
+    endmodule
+    
+    
