@@ -1,0 +1,17 @@
+module while_loop;
+int number;
+
+  
+  initial begin
+    do begin
+      $display("value is=%0d",number);
+      $display("hi iam");
+      number++;
+    end
+      
+    while(number<11);
+   
+  end
+endmodule
+    
+  
