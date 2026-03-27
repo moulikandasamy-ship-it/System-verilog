@@ -1,0 +1,21 @@
+module array_locator;
+  int arr[7:0]='{5,4,6,2,1,7,2,4};
+  int q[$];
+  
+  initial begin
+    q=arr.find(x)with(x>4);
+    $display("x is=%0p",q);
+    q=arr.find_index() with(item==7);
+    $display("x index is=%0p",q);
+    q=arr.find_index() with(item>6);
+    $display("x index with >6is=%0p",q);
+    q=arr.find_first_index()with(item>4);
+    $display("x is fist=%0p",q);
+    q=arr.find_first(x)with(x>5);
+    $display("x is=%0p",q);
+    q=arr.find_last_index(x)with(x>=5);
+     $display("x is=%0p",q);
+    q=arr.unique();
+       $display("x is=%0p",q);
+  end
+endmodule
