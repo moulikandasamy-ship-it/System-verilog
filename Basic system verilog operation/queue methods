@@ -1,0 +1,31 @@
+module queue_example;
+  int q[$];
+  int front, back;
+  initial begin
+
+    q.push_back(10);
+    q.push_back(20);
+    q.push_front(5);
+    $display("After push operations = %p", q);
+
+    q.insert(1, 15);
+    $display("After insert at index 1 = %p", q);
+
+    q.delete(2);
+    $display("After delete index 2 = %p", q);
+
+    front = q.pop_front();
+    $display("Pop front = %0d, Queue = %p", front, q);
+
+    back = q.pop_back();
+    $display("Popped back = %0d, Queue = %p", back, q);
+
+    $display("Queue size = %0d", q.size());
+
+
+    foreach (q[i])
+      $display("q[%0d] = %0d", i, q[i]);
+
+  end
+
+endmodule
