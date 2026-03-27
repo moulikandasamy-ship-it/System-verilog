@@ -1,0 +1,15 @@
+module foreach_loop;
+  int arr[6];
+  int max;
+  initial begin
+    arr='{2,7,8,6,11,3};
+    max=arr[0];
+    foreach(arr[i])
+      begin
+        if(arr[i] > max)
+          max = arr[i];
+      end
+        $display("maximum value in array is =%0d",max);
+      
+  end
+endmodule
