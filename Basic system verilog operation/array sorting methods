@@ -1,0 +1,14 @@
+module sorting;
+  int arr[]='{1,6,9,4,7,3};
+  
+  initial begin
+    arr.sort();
+    $display("sorted array is=%0p",arr);
+    arr.shuffle();
+    $display("shuffled array is=%0p",arr);
+    arr.reverse();
+    $display("reversed array is=%0p",arr);
+    arr.rsort();
+    $display("rsorted array is=%0p",arr);
+  end
+endmodule
