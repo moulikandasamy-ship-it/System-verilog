@@ -1,0 +1,27 @@
+module all_loop;
+ logic [3:0] arr[4][3];
+  int i, j;
+  
+  initial begin
+    i = 0;
+
+    while (i < 4) begin
+      for (j = 0; j < 3; j++) begin   
+
+        if (i == j) begin
+          arr[i][j] = i + j;
+          $display("arr[%0d][%0d]=%0d",i,j, arr[i][j]);
+        end
+        
+        else begin
+          arr[i][j] = 0;
+          $display("arr[%0d][%0d]=%0d", i, j, arr[i][j]);
+        end
+
+      end
+      i++;
+    end
+  end
+endmodule
+    
+  
