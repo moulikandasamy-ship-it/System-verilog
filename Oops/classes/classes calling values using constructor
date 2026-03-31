@@ -1,0 +1,41 @@
+class transaction;
+  int a, b, c;
+
+  function new();
+    a = 10;         
+    b = 15;
+  endfunction        
+
+  function int add();   
+    c = a + b;
+    $display("function is on");
+    $display("c is = %0d", c);
+    return c;
+  endfunction
+
+endclass
+
+
+class product;
+  int c;
+  transaction tr;
+
+  function int sum();    
+    tr = new();         
+    c = tr.add();        
+    return c;
+  endfunction
+
+endclass
+
+
+module total;
+  int c;
+  initial begin
+    product pr;
+    pr = new();
+    c = pr.sum();                  
+    $display("c is on = %0d", c);
+  end
+endmodule
+    
