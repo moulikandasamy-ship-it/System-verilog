@@ -1,0 +1,41 @@
+class A;
+
+  typedef struct {
+    logic [4:0] number;
+    string name;
+  } register;
+
+  register r;
+
+  function new();
+    r.name = "example";
+    r.number = 0;
+  endfunction
+
+  function int operation(int a, int b);
+    int c;
+    c = a + b;
+    r.number = 20;
+    return c;
+  endfunction
+
+  function void display(int c);
+    $display("c = %0d, number = %0d, name = %s", c, r.number, r.name);
+  endfunction
+
+endclass
+
+
+module tb;
+
+  A z;
+
+  initial begin
+    int result;
+
+    z = new();                    
+    result = z.operation(5, 10); 
+    z.display(result);           
+  end
+
+endmodule
