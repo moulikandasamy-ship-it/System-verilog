@@ -1,0 +1,22 @@
+module tb;
+  int aa_array [int];
+
+  initial begin
+    int idx;
+
+    aa_array[5] = 30;
+    aa_array[8] = 10;
+    aa_array[1] = 40;
+    aa_array[2] = 100;
+
+    aa_array.next(idx);
+    $display("aa_array[%0d]=%0d", idx, aa_array[idx]);
+
+    aa_array.next(idx);
+    $display("aa_array[%0d]=%0d", idx, aa_array[idx]);
+
+    idx = 5;
+    aa_array.prev(idx);
+    $display("aa_array[%0d]=%0d", idx, aa_array[idx]);
+  end
+endmodule
