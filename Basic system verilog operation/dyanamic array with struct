@@ -1,0 +1,50 @@
+module tb;
+
+  typedef struct {
+    int    id;
+    string name;
+    int    marks;
+  } student_t;
+
+  student_t students[];
+
+  initial begin
+    int i;
+
+    students = new[3];
+
+    students[0] = '{1, "mouli", 85};
+    students[1] = '{2, "nithish", 90};
+    students[2] = '{3, "Ravi", 75};
+
+    foreach (students[i]) begin
+      $display("ID=%0d Name=%s Marks=%0d",
+                students[i].id,
+                students[i].name,
+                students[i].marks);
+    end
+
+    students = new[5](students);
+
+    students[3] = '{4, "John", 88};
+    students[4] = '{5, "Arun", 92};
+
+    foreach (students[i]) begin
+      if (students[i].marks < 80)
+        students[i].marks += 5;
+    end
+
+    foreach (students[i]) begin
+      $display("ID=%0d Name=%s Marks=%0d",
+                students[i].id,
+                students[i].name,
+                students[i].marks);
+    end
+
+    students.delete();
+
+    $display("\nAfter delete: %p", students);
+
+  end
+
+endmodule
