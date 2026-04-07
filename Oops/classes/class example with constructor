@@ -1,0 +1,25 @@
+class Packet;
+  bit [31:0] addr;
+  
+
+  function new ();
+    addr = 32'hfade_cafe;
+  endfunction
+  
+  function display();
+     $display ("addr=0x%0h", addr);
+
+  endfunction
+    
+endclass
+
+module tb;
+   Packet pkt,c; 
+  initial begin
+    pkt = new();
+    c = new();
+    c.display();
+   
+    
+  end
+endmodule
