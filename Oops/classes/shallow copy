@@ -1,0 +1,42 @@
+class header;
+int data;
+int id;
+  function new(int id,int data);
+    this.id=id;
+    this.data=data;
+  endfunction
+endclass
+  
+ class packet;
+   int addr;
+   int imei_no;
+   header hdr;
+   function new(int addr,int imei_no,int id,int data);
+     hdr=new(id,data);
+     this.addr=addr;
+     this.imei_no=imei_no;
+   endfunction
+   
+     function void display();
+       $display("addr=%0d imei_no=%0d data=%0d  id=%0d",addr,imei_no,hdr.id,hdr.data);
+     endfunction
+   
+     endclass
+  
+   module tb;
+     packet p1,p2;
+     initial begin
+       p1=new(3654,6435667,54,97);
+       p1.display();
+       p2=new p1;
+       p2.display();
+       p1.addr=4567;
+       p1.hdr.data=67;
+       p1.hdr.id=71;
+       p1.imei_no=54676;
+       p1.display();
+       p2.display();
+     end
+   endmodule
+       
+     
