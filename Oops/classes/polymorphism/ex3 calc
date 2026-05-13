@@ -1,0 +1,75 @@
+class Calculator;
+
+  int a, b;
+
+  virtual function void operate();
+    $display("Base Calculator");
+  endfunction
+
+endclass
+
+
+class Add extends Calculator;
+
+  function void operate();
+    $display("Addition = %0d", a + b);
+  endfunction
+
+endclass
+
+class Sub extends Calculator;
+
+  function void operate();
+    $display("Subtraction = %0d", a - b);
+  endfunction
+
+endclass
+
+
+class Mul extends Calculator;
+
+  function void operate();
+    $display("Multiplication = %0d", a * b);
+  endfunction
+
+endclass
+
+
+
+module tb;
+
+  Calculator calc;   
+
+  Add add_obj;
+  Sub sub_obj;
+  Mul mul_obj;
+
+  initial begin
+
+    add_obj = new();
+    add_obj.a = 10;
+    add_obj.b = 5;
+
+    calc = add_obj;
+
+    calc.operate();
+
+    sub_obj = new();
+    sub_obj.a = 10;
+    sub_obj.b = 5;
+
+    calc = sub_obj;
+
+    calc.operate();
+
+    mul_obj = new();
+    mul_obj.a = 10;
+    mul_obj.b = 5;
+
+    calc = mul_obj;
+
+    calc.operate();
+
+  end
+
+endmodule
