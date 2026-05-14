@@ -1,0 +1,35 @@
+`include "transaction.sv"
+`include "interface.sv"
+`include "generator.sv"
+`include "driver.sv"
+`include "monitor"
+`include "scoreboard"
+`include "environment"
+
+module tb;
+
+   add_if vif();
+
+   full_adder dut(
+      .a(vif.a),
+      .b(vif.b),
+      .cin(vif.cin),
+      .sum(vif.sum),
+      .carry(vif.carry)
+   );
+
+   environment env;
+
+   initial begin
+
+      env = new(vif);
+
+      env.run();
+
+      #20;
+
+      $finish;
+
+   end
+
+endmodule
