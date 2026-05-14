@@ -1,0 +1,35 @@
+class driver;
+
+   transaction tr;
+
+   mailbox #(transaction) gen2drv;
+
+   virtual add_if vif;
+
+   function new(mailbox #(transaction) gen2drv,
+                virtual add_if vif);
+
+      this.gen2drv = gen2drv;
+      this.vif     = vif;
+
+   endfunction
+
+   task run();
+
+      forever begin
+
+         gen2drv.get(tr);
+
+         vif.a   = tr.a;
+         vif.b   = tr.b;
+         vif.cin = tr.cin;
+
+         tr.display("DRIVER");
+
+         #1;
+
+      end
+
+   endtask
+
+endclass
