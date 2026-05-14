@@ -1,0 +1,44 @@
+class scoreboard;
+
+   transaction tr;
+
+   mailbox #(transaction) mon2scb;
+
+   bit exp_sum;
+   bit exp_carry;
+
+   function new(mailbox #(transaction) mon2scb);
+
+      this.mon2scb = mon2scb;
+
+   endfunction
+
+   task run();
+
+      repeat(8) begin
+
+         mon2scb.get(tr);
+
+         exp_sum =
+            tr.a ^ tr.b ^ tr.cin;
+
+         exp_carry =
+            (tr.a & tr.b) |
+            (tr.b & tr.cin) |
+            (tr.a & tr.cin);
+
+         if((exp_sum == tr.sum) &&
+            (exp_carry == tr.carry))
+
+            $display("PASS");
+
+         else
+            $display("FAIL");
+
+         $display("--------------------------------");
+
+      end
+
+   endtask
+
+endclass
