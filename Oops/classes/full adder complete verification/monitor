@@ -1,0 +1,40 @@
+class monitor;
+
+   transaction tr;
+
+   mailbox #(transaction) mon2scb;
+
+   virtual add_if vif;
+
+   function new(mailbox #(transaction) mon2scb,
+                virtual add_if vif);
+
+      this.mon2scb = mon2scb;
+      this.vif     = vif;
+
+   endfunction
+
+   task run();
+
+      repeat(8) begin
+
+         #2;
+
+         tr = new();
+
+         tr.a     = vif.a;
+         tr.b     = vif.b;
+         tr.cin   = vif.cin;
+
+         tr.sum   = vif.sum;
+         tr.carry = vif.carry;
+
+         mon2scb.put(tr);
+
+         tr.display("MONITOR");
+
+      end
+
+   endtask
+
+endclass
